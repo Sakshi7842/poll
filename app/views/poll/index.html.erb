@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-sm">
+    <% @questions.each do |question| %>
+      <br>
+      <div class="card">
+        <div class="card-body">
+          <%= form_tag '/poll/submitt' do |f| %>
+            <h5> <%= question.title %></h5>
+            <% question.answers.each do |answer|%>
+              <%= radio_button_tag(:answer_id, answer.id) %>
+              <%= label_tag(:answer, answer.title) %><br>
+            <% end %>
+            <%= submit_tag 'Submit', class: 'btn btn-primary' %>
+          <% end %>         
+        </div> 
+      </div>
+    <% end %>    
+  </div>
+</div>
+
+
+

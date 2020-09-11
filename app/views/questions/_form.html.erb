@@ -1,0 +1,19 @@
+<div class="container-sm" >
+  <%= semantic_form_for @question do |f| %>
+  <% f.inputs do %>
+    <%= f.input :title %><br>
+    <h3>Answers</h3>
+    <div id='answers'>
+      <%= f.semantic_fields_for :answers do |answer| %>
+        <%= render 'answer_fields', :f => answer %>
+      <% end %>
+      <div class='links'>
+        <%= link_to_add_association 'add answer', f, :answers %>
+      </div>
+    </div>
+    
+    <%= f.submit 'Save' %>
+
+  <% end %>
+<% end %>
+</div>
