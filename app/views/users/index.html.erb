@@ -1,0 +1,21 @@
+<div class="container-sm">
+<h1 align='center'>List of All Users</h1>
+<table class="table" >
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>UserId</th>
+      <th colspan="2">Action</th>
+    </tr>
+  </thead>
+<tbody>
+	<% @users.each do |u| %>
+	<tr>
+		<td><%= u.id %></td>
+		<td> <%= u.email %></td>
+    <td><%= link_to 'Edit', edit_user_registration_path %></td>
+	</tr>
+	<% end %>
+</tbody>
+</table>
+</div>

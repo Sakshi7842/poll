@@ -8,8 +8,20 @@
       <li class="nav-item active">
         <%= link_to 'Poll', poll_path, class: 'nav-link text-light'%>
       </li>
-
-      <% if user_signed_in? %>
+      <% if admin_signed_in? %>
+      <li class="nav-item">
+          <%= link_to 'Admin Sign Out', destroy_admin_session_path, method: :delete,  class: 'nav-link text-light' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Create Poll', new_question_path,   class: 'nav-link text-light' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Poll Dashboard', 'questions#show',   class: 'nav-link text-light' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'List User', 'users/index',   class: 'nav-link text-light' %>
+      </li>
+      <% elsif user_signed_in? %>
         <li class="nav-item">
           <%= link_to 'Sign Out', destroy_user_session_path, method: :delete,  class: 'nav-link text-light' %>
         </li>
@@ -17,12 +29,10 @@
         <li class="nav-item">
           <%= link_to 'Sign In', new_user_session_path, class: 'nav-link text-light' %>
         </li>
-      <% end %>
-      <% unless user_signed_in? %>
-         <li class="nav-item">
-          <%= link_to 'Sign Up', new_user_registration_path, class: 'nav-link text-light' %>
+        <li class="nav-item">
+          <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link text-light' %>
         </li>
-      <%end%>
+      <% end %>
     </ul>
   </div>
 </nav><br>
