@@ -10,8 +10,8 @@
   </head>
 
   <body >
+    <%= render partial: 'layouts/header' %>
     <div class="container-fluid">
-      <%= render partial: 'layouts/header' %>
       <% if flash[:alert] %>
         <div class="alert alert-danger">
          	<%= flash[:alert] %>

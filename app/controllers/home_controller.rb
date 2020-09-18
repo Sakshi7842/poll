@@ -1,5 +1,10 @@
 class HomeController < ApplicationController
   def index
-  	@questions = current_user&.questions || []
+  	if admin_signed_in?
+  		@questions = Question.all
+  	else
+  		@questions = current_user&.questions || []
+  	end
+  	
   end
 end

@@ -16,10 +16,10 @@
         <%= link_to 'Create Poll', new_question_path,   class: 'nav-link text-light' %>
       </li>
       <li class="nav-item">
-        <%= link_to 'Poll Dashboard', 'questions#show',   class: 'nav-link text-light' %>
+        <%= link_to 'Poll Dashboard', questions_path,   class: 'nav-link text-light' %>
       </li>
       <li class="nav-item">
-        <%= link_to 'List User', 'users/index',   class: 'nav-link text-light' %>
+        <%= link_to 'List User', users_index_path,   class: 'nav-link text-light' %>
       </li>
       <% elsif user_signed_in? %>
         <li class="nav-item">

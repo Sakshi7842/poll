@@ -3,7 +3,7 @@
   <div class="row">
     <% questions.each do |question| %>
       <div class="col-sm-6">
-        <h2 align='center'><% question.title %></h2>
+        <h4><%= question.title %></h4>
         <% total = question.answers.sum(:total) %>
         <% question.answers.each do |answer|%>
           <% x = ((answer.total/total.to_f )* 100) %>
