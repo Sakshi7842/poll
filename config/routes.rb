@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   get '/poll/index', to: 'poll#index', as: 'poll'
   post 'poll/submitt'
 	root  "home#index"
+  patch 'questions/:id/:q_status', to: 'questions#update_status', as: 'update_status'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

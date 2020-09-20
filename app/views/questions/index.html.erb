@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <div class="container-sm">
 
 <h1 align='center'>Questions</h1>
@@ -8,7 +7,7 @@
     <tr>
       <th>Title</th>
       <th>Status</th>
-      <th colspan="3">Action</th>
+      <th colspan="4">Action</th>
     </tr>
   </thead>
 
@@ -20,6 +19,7 @@
         <td><%= link_to 'Show', question %></td>
         <td><%= link_to 'Edit', edit_question_path(question) %></td>
         <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to "#{question.active? ? 'inactive' : 'active'}", update_status_path(question.id, question.active? ? 'inactive' : 'active') ,method: :patch %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,5 +27,4 @@
 
 <br>
 
-<%= link_to 'New Question', new_question_path  %>
 </div>

@@ -2,7 +2,7 @@ class PollController < ApplicationController
   before_action :authenticate_user!
 
 	def index
-		@questions = Question.all
+		@questions = Question.active
 	end
 
 	def submitt
@@ -14,7 +14,7 @@ class PollController < ApplicationController
        answer.update(total: answer.total + 1)
     end
 
-    @questions = Question.all
+    @questions = Question.active
 
     respond_to do |format|
       if is_answered

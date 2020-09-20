@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :set_question, only: [:show, :edit, :update, :destroy, :update_status]
 
   # GET /questions
   # GET /questions.json
@@ -61,6 +61,18 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def update_status
+     respond_to do |format|
+      if  @question.try("#{params[:q_status]}!")
+        format.html { redirect_to questions_url, notice: 'Question was successfully updated.' }
+        format.json { render :show, status: :ok, location: @question }
+      else
+        format.html { render :edit }
+        format.json { render json: @question.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question
